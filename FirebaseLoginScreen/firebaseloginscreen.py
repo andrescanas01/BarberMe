@@ -47,14 +47,6 @@ class FirebaseLoginScreen(Screen, EventDispatcher):
         on_login_success:
             # do something here
 
-    In your main App class, set the three following fields to dictate the color
-    scheme of the login screens. Example:
-
-    class MainApp(App):
-        primary_color: (1, 0, 0, 1)
-        secondary_color: (0, 1, 0, 1)
-        tertiary_color: (0, 0, 1, 1)
-        pass
 
     NOTES:
     1) You MUST set the web api key or it is impossible for the login screen to
@@ -63,8 +55,6 @@ class FirebaseLoginScreen(Screen, EventDispatcher):
     3) You probably want to switch screens to a Screen in your project once the
     user has logged in (write that code in the on_login_success function shown
     in the example above).
-    4) You can set the colors (primary_color, secondary_color, tertiary_color)
-    to be whatever you like.
     """
 
     # Firebase Project meta info - MUST BE CONFIGURED BY DEVELOPER
@@ -258,12 +248,8 @@ class FirebaseLoginScreen(Screen, EventDispatcher):
 
     def reset_password(self, email):
         """Called when the "Reset password" button is pressed.
-
-        Sends an automated email on behalf of your Firebase project to the user
-        with a link to reset the password. This email can be customized to say
-        whatever you want. Simply change the content of the template by going to
-        Authentication (in your Firebase project) -> Templates -> Password reset
         """
+        
         print("testing password reset")
         if self.debug:
             print("Attempting to send a password reset email to: ", email)
@@ -304,7 +290,6 @@ class FirebaseLoginScreen(Screen, EventDispatcher):
 
     def save_refresh_token(self, refresh_token):
         """Saves the refresh token in a local file to enable automatic sign in
-        next time the app is opened.
         """
         if self.debug:
             print("Saving the refresh token to file: ", self.refresh_token_file)
