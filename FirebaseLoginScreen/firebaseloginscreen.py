@@ -38,23 +38,17 @@ import requests
 import json
 
 class FirebaseLoginScreen(Screen, EventDispatcher):
-    """Use this widget as a complete module to incorporate Firebase user
-    authentication in your app. To use this module, instantiate the login screen
+    """To use this module, instantiate the login screen
     in the KV language like so:
     FirebaseLoginScreen:
         web_api_key: "your_firebase_web_api_key"
-        debug: True # Not necessary, but will print out debug information
         on_login_success:
             # do something here
 
-
     NOTES:
-    1) You MUST set the web api key or it is impossible for the login screen to
-    function properly.
-    2) You probably want to wrap the FirebaseLoginScreen in a ScreenManager.
-    3) You probably want to switch screens to a Screen in your project once the
-    user has logged in (write that code in the on_login_success function shown
-    in the example above).
+    1) You MUST set the web api key.
+    2) You probably want to switch screens to a Screen in your project once the
+    user has logged in.
     """
 
     # Firebase Project meta info - MUST BE CONFIGURED BY DEVELOPER
