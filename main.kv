@@ -1,0 +1,115 @@
+#:include FirebaseLoginScreen/firebaseloginscreen.kv
+#:import FirebaseLoginScreen FirebaseLoginScreen.firebaseloginscreen.FirebaseLoginScreen
+#:import utils kivy.utils
+GridLayout:
+    cols:1
+    ScreenManager:
+        id: screen_manager
+        name: "screen_manager"
+        FirebaseLoginScreen:
+            id: firebase_login_screen
+            name: "firebase_login_screen"
+            web_api_key: "AIzaSyBAz-5OMQ7lo0kbXvWn-rFCo39IkUUgwkM" # Found in Firebase -> Project Settings -> Web API Key
+            primary_color: utils.get_color_from_hex("#EE682A")
+            secondary_color: utils.get_color_from_hex("#060809")
+            tertiary_color: (.25, .25, .25, 1)
+
+            on_login_success:
+                print("ARE YOU GETTING HERE")
+                # Defining this function lets you program what to do when the
+                # user has logged in (probably you'll want to change screens)!
+                # Get the important user info
+                app.user_localId = self.localId
+                app.user_idToken = self.idToken
+                app.set_up()
+                #print(firebase_login_screen.refresh_token_file)
+                #screen_manager.current = "userpage"
+
+
+        UserPage:
+            name: "userpage"
+            id: userpage
+
+        FavoriteScreen:
+            name: "fscreen"
+            id: fscreen
+
+        ShopScreen:
+            name: "shopscreen"
+            id: shopscreen
+
+        SearchPageScreen:
+            name: "searchpage"
+            id: searchpage
+
+        PostPageScreen:
+            name: "postpage"
+            id: postpage
+
+        UploadPageScreen:
+            name: "uploadpage"
+            id: uploadpage
+
+        ShopHomePage:
+            name: "shophomepage"
+            id: shophomepage
+
+        SearchResultsScreen:
+            name: "srscreen"
+            id: srscreen
+
+        AddOrDeleteDeal:
+            name: "addordeletepage"
+            id: addordeletepage
+
+        EditAccountScreen:
+            name: "editaccount"
+            id: editaccount
+
+        ForgotPasswordScreen:
+            name:"forgotpassword"
+            id: forgotpassword
+
+        BookApptScreen:
+            name: "bookappt"
+            id: bookappt
+
+        PromotionPageScreen:
+            name: "promopage"
+            id: promopage
+
+        AddOrDeleteVideo:
+            name:"addordeletevid"
+            id: addordeletevid
+
+        DatePickerScreen:
+            name: "datepicker"
+            id: datepicker
+
+        ChooseSocialPage:
+            name: "socialpage"
+            id: socialpage
+
+        InstagramPage:
+            name: "instapage"
+            id: instapage
+
+        FacebookPage:
+            name: "facebookpage"
+            id: facebookpage
+
+        ChangePasswordPage:
+            name:"changepw"
+            id: changepw
+
+        DistanceOrNameScreen:
+            name: "distorname"
+            id: distorname
+
+        SearchByDistScreen:
+            name: "searchbydist"
+            id: searchbydist
+
+        ConfirmationApptScreen:
+            name:"confirmation"
+            id: confirmation

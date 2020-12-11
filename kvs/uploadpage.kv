@@ -1,0 +1,80 @@
+<UploadPageScreen>:
+    on_enter: imgsource.state = "play"
+    on_leave: imgsource.state = "pause"
+    id: "UploadPage"
+    MDScreen:
+        md_bg_color: [0/255,51/255,78/255,1]
+        BoxLayout:
+            orientation:"vertical"
+            padding: 10
+            spacing: 10
+
+            MDLabel:
+                text:"Upload Promotion"
+                font_size: 50
+                halign: "center"
+                theme_text_color: 'Custom'
+                text_color: [233/255,233/255,233/255,1]
+                size_hint_y: 0.15
+
+            Video:
+                id: imgsource
+                source:""
+                #state: "pause"
+                pos_hint: {'center_x':0.5, 'center_y':0.5}
+                size_hint_y: 0.7
+
+
+            FloatLayout:
+                padding: 5
+                spacing: 5
+                size_hint_y: 0.1
+
+                MDRoundFlatButton:
+                    text: "Choose File"
+                    theme_text_color: "Custom"
+                    pos_hint: {"center_x":0.3, "center_y":0.5}
+                    md_bg_color: [232/255,232/255,232/255,1]
+                    text_color: [0/255,51/255,78/255,1]
+                    on_release:
+                        imgsource.state = "pause"
+                        root.openFileChooser()
+
+
+                MDRoundFlatButton:
+                    text: "Cancel"
+                    theme_text_color: "Custom"
+                    pos_hint: {"center_x":0.7, "center_y":0.5}
+                    md_bg_color: [232/255,232/255,232/255,1]
+                    text_color: [0/255,51/255,78/255,1]
+                    on_release:
+                        app.change_screen("addordeletevid")
+                        app.delete_video()
+
+            MDIconButton:
+                theme_text_color: "Custom"
+                md_bg_color: [232/255,232/255,232/255,1]
+                text_color: [0/255,51/255,78/255,1]
+                icon: 'account-arrow-left'
+                on_release:
+                    app.change_screen("addordeletevid")
+
+<ChooseFile>:
+    FileChooserIconView:
+        id: filechooser
+        pos_hint:{"x":0,"y":0.1}
+        size_hint:(0.9,0.8)
+        filters: ['*.mp4', '*.avi', '*.mov','*.jpg','*.jpeg','*.png', '*.img']
+    Button:
+        text:"cancel"
+        size_hint:(0.3,0.1)
+        pos_hint:{"center_x": 0.3, "y": 0}
+        on_release:
+            root.close()
+    Button:
+        text:"upload"
+        size_hint:(0.3,0.1)
+        pos_hint:{"center_x": 0.7, "y": 0}
+        on_release:
+            app.add_video(filechooser.path,filechooser.selection)
+            root.close()

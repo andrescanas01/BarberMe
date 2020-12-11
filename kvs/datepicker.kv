@@ -1,0 +1,20 @@
+<DatePickerScreen>:
+
+    MDTextField:
+        id: customer_name
+        text: ""
+        hint_text: "Name Here"
+        size_hint_x: None
+        width: 500
+        pos_hint: {"center_x":0.5}
+
+    MDRoundFlatButton:
+        id:pick_date
+        text:"Pick a date"
+        theme_text_color: "Custom"
+        pos_hint: {"center_x":0.5, "center_y":0.18}
+        md_bg_color: [1,1,1,1]
+        text_color: [0/255,51/255,78/255,1]
+        on_release:
+            #app.search_by_name(searchname.text)
+            app.pick_appt_date(customer_name.text)

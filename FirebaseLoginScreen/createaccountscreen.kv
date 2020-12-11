@@ -1,0 +1,102 @@
+<CreateAccountScreen>:
+    MDScreen:
+        name: 'SignUp'
+        md_bg_color: [0/255,51/255,78/255,1]
+        BoxLayout:
+            orientation:"vertical"
+
+        MDIconButton:
+            #text: "back"
+            theme_text_color: "Custom"
+            md_bg_color: [232/255,232/255,232/255,1]
+            text_color: [0/255,51/255,78/255,1]
+            icon: 'arrow-left'
+            pos_hint: {'center_x': 0.12, 'center_y': 0.09}
+            on_release:
+                root.parent.transition = SlideTransition(direction="right")
+                root.parent.current = "is_a_shop_screen"
+                root.parent.transition = SlideTransition(direction="left")
+
+
+
+        MDCard:
+            size_hint: None,None
+            size: 700,800
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            spacing: 30
+            orientation: "vertical"
+            padding: 30
+            radius:[30,30,30,30]
+            MDLabel:
+                text: "Sign Up"
+                font_size: 55
+                halign: "center"
+                text_color: "Black"
+
+            MDTextField:
+                id:email
+                hint_text: "E-mail"
+                size_hint_x: None
+                width: 500
+                pos_hint: {"center_x":0.5}
+
+            MDTextField:
+                id: username
+                hint_text: "Username"
+                size_hint_x: None
+                width: 500
+                pos_hint: {"center_x":0.5}
+
+            MDTextField:
+                id: phone
+                hint_text: "Phone Number"
+                size_hint_x: None
+                width: 500
+                pos_hint: {"center_x":0.5}
+
+            MDTextField:
+                id: password
+                hint_text: "Password"
+                size_hint_x: None
+                password: True
+                width: 500
+                pos_hint: {"center_x":0.5}
+
+            #MDTextField:
+            #    hint_text: "Confirm Password"
+            #    size_hint_x: None
+            #    width: 500
+            #    pos_hint: {"center_x":0.5}
+
+            MDRoundFlatButton:
+                text: "Submit"
+                pos_hint: {"center_x":0.5}
+                theme_text_color: "Custom"
+                md_bg_color: [232/255,232/255,232/255,1]
+                text_color: [0/255,51/255,78/255,1]
+                on_release:
+                    # Need to refer to the FirebaseLoginScreen
+                    root.parent.parent.sign_up(email.text, password.text, username.text, phone.text)
+                    Animation(opacity=0, duration=0.5).start(message)
+                    #sign_in_button.opacity = 0
+                    #sign_in_button.disabled = True
+                    root.parent.parent.display_loading_screen()
+
+
+            MDLabel:
+                id: message
+                size_hint: .9 ,.1
+                pos_hint: {"center_x": .5, "center_y": .1}
+                opacity: 0
+                md_bg_color: [232/255,232/255,232/255,1]
+                text_color: [0/255,51/255,78/255,1]
+                halign: "center"
+                on_text:
+                    Animation(opacity=1, duration=0.5).start(self)
+
+
+
+
+
+
+

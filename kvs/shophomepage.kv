@@ -1,0 +1,67 @@
+<ShopHomePage>
+    #on_enter: app.set_up()
+    MDScreen:
+
+        md_bg_color: [0/255,51/255,78/255,1]
+        BoxLayout:
+            orientation:"vertical"
+
+        MDCard:
+            size_hint: (0.9,0.9)
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            spacing: 30
+            orientation: "vertical"
+            padding: 30
+            radius:[30,30,30,30]
+
+
+            Image:
+                source:'images/barber2.png'
+                pos_hint: {'center_x':0.5, 'center_y':0.5}
+
+
+            MDLabel:
+                id: welcome_label
+                text: "Hi, Shop!"
+                font_size: 50
+                halign: "center"
+                text_color: "Black"
+
+
+            MDRoundFlatButton:
+                text: "Post or Delete Promotion"
+                pos_hint: {"center_x":0.5, "center_y":0.9}
+                theme_text_color: "Custom"
+                size_hint: .55,.25
+                md_bg_color: [232/255,232/255,232/255,1]
+                text_color: [0/255,51/255,78/255,1]
+                on_release:
+                    root.parent.transition = SlideTransition(direction="left")
+                    app.change_screen("addordeletepage")
+
+
+
+            MDRoundFlatButton:
+                text: "Post or Delete Video"
+                pos_hint: {"center_x":0.5, "center_y":0.9}
+                size_hint: .55,.25
+                theme_text_color: "Custom"
+                md_bg_color: [232/255,232/255,232/255,1]
+                text_color: [0/255,51/255,78/255,1]
+                on_release:
+                    root.parent.transition = SlideTransition(direction="left")
+                    app.change_screen("addordeletevid")
+
+
+
+
+            MDRoundFlatButton:
+                text: "Edit Account"
+                theme_text_color: "Custom"
+                pos_hint: {"center_x":0.5, "center_y":0.9}
+                size_hint: .55,.25
+                md_bg_color: [232/255,232/255,232/255,1]
+                text_color: [0/255,51/255,78/255,1]
+                on_release:
+                    root.parent.transition = SlideTransition(direction="left")
+                    app.change_screen("editaccount")

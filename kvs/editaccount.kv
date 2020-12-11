@@ -1,0 +1,82 @@
+<EditAccountScreen>:
+    MDScreen:
+
+        md_bg_color: [232/255,232/255,232/255,1]
+
+
+        BoxLayout:
+
+            orientation:"vertical"
+            canvas:
+                Color:
+                    rgba:[0/255,51/255,78/255,1]
+                Rectangle:
+                    pos: self.pos
+                    size:(self.width , self.height)
+
+        MDIconButton:
+            #text: "back"
+            theme_text_color: "Custom"
+            md_bg_color: [232/255,232/255,232/255,1]
+            text_color: [0/255,51/255,78/255,1]
+            icon: 'arrow-left'
+            pos_hint: {'center_x': 0.12, 'center_y': 0.09}
+            on_release:
+                root.parent.transition = SlideTransition(direction="right")
+                app.change_screen(app.screen_stack[1])
+                #app.change_screen(app.screen_stack.pop())
+                #root.parent.transition = SlideTransition(direction="left")
+
+        MDFillRoundFlatButton:
+
+            size_hint: .6, .072
+            pos_hint: {"top": .65, "center_x": .5}
+            text: "Sign Out"
+            font_size: 17
+            md_bg_color: [232/255,232/255,232/255,1]
+            text_color:  [0/255,51/255,78/255,1]
+            on_release:
+                root.confirmation("Sign Out", "Are you sure you want to sign out?", root.sign_out)
+
+        MDFillRoundFlatButton:
+            size_hint: .6, .072
+            pos_hint: {"top": .55, "center_x": .5}
+            text: "Reset Password"
+            font_size: 17
+            md_bg_color: [232/255,232/255,232/255,1]
+            text_color: [0/255,51/255,78/255,1]
+            on_release:
+                root.confirmation("Reset Password", "An email will be sent to your linked account", root.reset_password)
+
+        MDFillRoundFlatButton:
+            size_hint: .6, .072
+            pos_hint: {"top": .45, "center_x": .5}
+            text: "Delete Account"
+            font_size: 17
+            md_bg_color: [232/255,232/255,232/255,1]
+            text_color: [0/255,51/255,78/255,1]
+            on_release:
+                root.confirmation("Delete Account", "This action can not be undone. Your app session will terminate immediately.", root.delete_account)
+
+        MDFillRoundFlatButton:
+            id: addmedia
+            opacity: 0
+            disabled: True
+            size_hint: .6, .072
+            pos_hint: {"top": .35, "center_x": .5}
+            text: "Add Social Media"
+            font_size: 17
+            md_bg_color: [232/255,232/255,232/255,1]
+            text_color: [0/255,51/255,78/255,1]
+            on_release:
+                #root.confirmation("Delete Account", "This action can not be undone. Your app session will terminate immediately.", root.delete_account)
+                print("OH YEA")
+                app.change_screen("facebookpage")
+
+
+
+
+
+
+
+

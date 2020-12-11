@@ -1,0 +1,62 @@
+<WelcomeScreen>:
+    MDScreen:
+
+        md_bg_color: [232/255,232/255,232/255,1]
+
+
+        BoxLayout:
+
+            orientation:"vertical"
+            canvas:
+                Color:
+                    rgba:[0/255,51/255,78/255,1]
+                Rectangle:
+                    pos: self.pos
+                    size:(self.width , self.height)
+        #Label
+            #text: "@PompadourSolutions"
+            #font_size: 21
+            #pos_hint: {"top": 1.491, "center_x": .15}
+
+           # color: (1,1,1,1)
+
+        MDLabel:
+            text: "Nappy Hour"
+            font_size: 90
+            pos_hint: {"top": 1.3}
+            halign: "center"
+            theme_text_color: "Custom"
+            #text_color: (244/255.0,244/255.0,220/255.0,1)
+            text_color:(1,1,1,1)
+
+
+        Image:
+
+            source:'images/barber2.png'
+            pos_hint: {'center_x':0.5, 'center_y':0.55}
+            width: 250
+            size_hint_x: None
+            allow_stretch: True
+
+
+        MDRaisedButton:
+            id: log_in_button
+            size_hint: .5, .053
+            pos_hint: {"top": .3, "center_x": .5}
+            text: "Sign In"
+            md_bg_color: [232/255,232/255,232/255,1]
+            text_color:  [0/255,51/255,78/255,1]
+            on_release:
+                root.parent.current = "sign_in_screen"
+
+        MDRaisedButton:
+            id: create_account_button
+            size_hint: .5, .053
+            pos_hint: {"top": .225, "center_x": .5}
+            text: "Create Account"
+            md_bg_color: [232/255,232/255,232/255,1]
+            text_color: [0/255,51/255,78/255,1]
+            on_release:
+                root.parent.current = "is_a_shop_screen"
+
+

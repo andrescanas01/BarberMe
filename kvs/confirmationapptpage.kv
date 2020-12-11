@@ -1,0 +1,26 @@
+<ConfirmationApptScreen>:
+    name:"confirmappt"
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        canvas:
+            Color:
+                rgba: (0/255,51/255,78/255,1)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        MDLabel:
+            id: confirmtext
+            text: ""
+            secondary_text: ""
+            halign: "center"
+
+        MDRoundFlatButton:
+            font_size: "20dp"
+            text: "Confirm your Appointment"
+            color: [23,23,23,1]
+            pos_hint: {"top": 0.95, "left": 0.6}
+            size_hint: (0.45, 0.2)
+            on_release:
+                app.update_timeslot(confirmtext.text, confirmtext.secondary_text)
+
