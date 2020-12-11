@@ -32,7 +32,8 @@ from createaccountscreen import CreateAccountScreen
 from createshopaccountscreen import CreateShopAccountScreen
 from isashop import IsAShopScreen
 
-
+# Template for firebaseloginscreen.py taken from https://github.com/Dirk-Sandberg/FirebaseLoginScreen
+# Please refer to the LICENSE file
 
 import requests
 import json
