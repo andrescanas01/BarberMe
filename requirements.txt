@@ -1,0 +1,6 @@
+kivy
+kivymd
+twilio
+pgeocode
+plyer
+kivy==2.0.0rc1
