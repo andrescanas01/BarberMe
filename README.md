@@ -1,5 +1,5 @@
-# nappyhour
-Welcome to NappyHour by Pompadour Solutions! <br />
+# BarberMe
+Welcome to BarberMe by Pompadour Solutions! <br />
 
 This mobile application will be uploaded to the Android and IOS store soon!
 
